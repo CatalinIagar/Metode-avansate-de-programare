@@ -9,8 +9,9 @@ using namespace std;
 int main()
 {
     ifstream fintrare;
-    fstream finout;
+    ofstream fiesire;
     fintrare.open("ex7in.txt");
+    fiesire.open("ex7out.txt");
     string linie[512];
     int count = 0;
     if (fintrare.is_open())
@@ -21,7 +22,6 @@ int main()
             count++;
         }
     }
-    finout << "\n";
     int numere[100];
     int nrcount = 0;
     for (int j = 0; j < count; j++)
@@ -50,14 +50,15 @@ int main()
         produs = produs * numere[i];
     }
     sort(numere, numere + nrcount);
-    cout << "Numerele gasite in ordine crescatoare sunt: ";
+    fiesire << "Numerele gasite in ordine crescatoare sunt: ";
     for (int i = 0; i < nrcount; i++)
     {
-        cout << numere[i] << " ";
+        fiesire << numere[i] << " ";
     }
-    cout << "\n Suma numerelor gasite este: " << suma << "\n";
-    cout << "Produsul numerelor gasite este: " << produs << "\n";
-    finout.close();
+    fiesire << "\nSuma numerelor gasite este: " << suma << "\n";
+    fiesire << "Produsul numerelor gasite este: " << produs << "\n";
+    fiesire.close();
+    fintrare.close();
     system("pause");
     return 0;
 }
