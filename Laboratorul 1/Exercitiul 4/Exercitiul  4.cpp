@@ -8,9 +8,24 @@ int main()
     ofstream fiesire;
     char ch;
     fiesire.open("ex4out.txt");
-    while (cin >> ch)
+    while ((ch = getchar()) != EOF)
     {
-        fiesire << ch;
+        if (ch == ' ')
+        {
+            fiesire << ' ';
+        }
+        else if (ch == '\n')
+        {
+            fiesire << '\n';
+        }
+        else if (ch == 26)
+        {
+            break;
+        }
+        else
+        {
+            fiesire << ch;
+        }
     }
     fiesire.close();
     return 0;
