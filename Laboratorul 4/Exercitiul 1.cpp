@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <iomanip>
 
 void cautare_secventiala_binara(int nr);
 void alocare_elemente(int v[], int nr);
@@ -10,7 +11,6 @@ int compare(const void *a, const void *b);
 int main()
 {
     srand(time(NULL));
-    int v[100000];
     std::cout << "Timpii de executie pentru N=100 elemente.\n";
     cautare_secventiala_binara(100);
     std::cout << "\n\nTimpii de executie pentru N=1000 elemente.\n";
@@ -37,9 +37,9 @@ void cautare_secventiala_binara(int nr)
     std::cout << "\n\n[Cautare binara]: " << std::endl;
     qsort(v, nr, sizeof(int), compare);
     timpInitial = clock();
-    cautare_secventiala(v, nr, cautat);
+    cautare_binara(v, 0, nr, cautat);
     timpFinal = clock();
-    std::cout << "Timpul de executie este " << (double)(timpFinal - timpInitial) / CLOCKS_PER_SEC;
+    std::cout << std::setprecision(10) << "Timpul de executie este " << (double)(timpFinal - timpInitial) / CLOCKS_PER_SEC;
 }
 
 void alocare_elemente(int v[], int nr)
@@ -59,11 +59,12 @@ void cautare_secventiala(int v[100000], int nr_elemente, int cheie)
         {
             std::cout << "Elementul a fost gasit pe pozitia " << i << std::endl;
             gasit = true;
+            break;
         }
     }
     if (!gasit)
     {
-        std::cout << "Elementul nu a fost gasit";
+        std::cout << "Elementul nu a fost gasit" << std::endl;
     }
 }
 
@@ -78,6 +79,7 @@ void cautare_binara(int v[], int inf, int sup, int cheie)
         {
             std::cout << "Elementul a fost gasit pe pozitia " << mij << std::endl;
             gasit = true;
+            inf = sup + 1;
         }
         else if (v[mij] < cheie)
         {
@@ -88,8 +90,9 @@ void cautare_binara(int v[], int inf, int sup, int cheie)
             sup = mij - 1;
         }
     }
-    if(!gasit){
-        std::cout << "Elementul nu a fost gasit";
+    if (!gasit)
+    {
+        std::cout << "Elementul nu a fost gasit" << std::endl;
     }
 }
 
