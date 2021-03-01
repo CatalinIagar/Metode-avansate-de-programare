@@ -4,9 +4,13 @@
 
 using namespace std;
 
-int compare( const void *a, const void *b) {
-  return *(char*)a - *(char*)b;
-}
+/* int compare ( const void *pa, const void *pb ) {
+    const int (*a)[4] = pa;
+    const int (*b)[4] = pb;
+    if ( (*a)[3] < (*b)[3] ) return -1;
+    if ( (*a)[3] > (*b)[3] ) return +1;
+    return 0;
+} */
 
 int main()
 {
@@ -44,7 +48,7 @@ int main()
             }
             cout << endl;
         }
-        qsort(linie, nrLinii, sizeof(char[3]), compare);
+        //qsort(linie, nrLinii, sizeof(linie[0]), compare);
         cout << "\nPropozitiile sortate sunt: \n";
         for (short i = 0; i <= nrLinii; i++)
         {
