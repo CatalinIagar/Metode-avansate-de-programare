@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string.h>
 #include <iostream>
-#include <iterator>
 
 using namespace std;
 
@@ -73,11 +72,11 @@ int main()
     strncpy(disciplina[4], "Engleza", 100);
 
     unsigned short orar[5][12] = {
-        {1, 1, 1, 0, 0, 2, 2, 2},
+        {1, 1, 1, 2, 2, 2},
         {3, 3, 2, 2, 2},
         {0, 0, 5, 5, 0, 0, 4, 4},
         {0, 0, 5, 5, 0, 0, 4, 4},
-        {1, 1, 0, 1, 3, 3},
+        {1, 1, 1, 3, 3},
     };
 
     short usor = 12, greu = 0, ziusor, zigreu, ziferestre, nrFerestre, nrFerestreMax = 0;
