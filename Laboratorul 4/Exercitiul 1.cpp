@@ -44,7 +44,7 @@ void cautare_secventiala_binara(int nr)
 
 void alocare_elemente(int v[], int nr)
 {
-    for (short i = 0; i < 100; i++)
+    for (short i = 0; i < nr; i++)
     {
         v[i] = rand() % 100;
     }
