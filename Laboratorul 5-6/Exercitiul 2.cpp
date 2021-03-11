@@ -1,11 +1,9 @@
 #include <iostream>
 #include <time.h>
 #include <Windows.h>
-#include <algorithm>
 
 void sorting_algorithms(int nr);
 void vector_alloc(int v[], int nr);
-void vector_print(int v[], int nr);
 void insertion_sort(int v[], int nr);
 void shell_sort(int v[], int nr);
 void selection_sort(int v[], int nr);
@@ -27,12 +25,6 @@ void sorting_algorithms(int nr)
 {
     clock_t timp_initial, timp_final;
     int v[100001];
-
-    vector_alloc(v, nr);
-    timp_initial = clock();
-    std::sort(v, v+nr);
-    timp_final = clock();
-    std::cout << "\n[SORT][" << nr << " elements]" << "Execution time:  " << (double)(timp_final - timp_initial) / CLOCKS_PER_SEC << std::endl;
 
     std::cout << "\n[Insertion sort][" << nr << " elements]" << std::endl;
     std::cout << "[Insertion sort]Allocating array" << std::endl;
@@ -79,14 +71,14 @@ void sorting_algorithms(int nr)
     timp_final = clock();
     std::cout << "[Cocktail sort]Execution time:  " << (double)(timp_final - timp_initial) / CLOCKS_PER_SEC << std::endl;
 
-    /* std::cout << "\n[Counting sort][" << nr << " elements]" << std::endl;
+    std::cout << "\n[Counting sort][" << nr << " elements]" << std::endl;
     std::cout << "[Counting sort]Allocating array" << std::endl;
     std::cout << "[Counting sort]Sorting array" << std::endl;
     vector_alloc(v, nr);
     timp_initial = clock();
     counting_sort(v, nr);
     timp_final = clock();
-    std::cout << "[Counting sort]Execution time:  " << (double)(timp_final - timp_initial) / CLOCKS_PER_SEC << std::endl; */
+    std::cout << "[Counting sort]Execution time:  " << (double)(timp_final - timp_initial) / CLOCKS_PER_SEC << std::endl;
 }
 
 void insertion_sort(int v[], int nr)
@@ -141,8 +133,8 @@ void selection_sort(int v[], int nr)
 void counting_sort(int v[], int nr)
 {
     long long i, j, temp;
-    long long contor[100001];
-    long long dest[100001];
+    long long contor[100001] = {0};
+    long long dest[100001] = {0};
     for (i = 0; i < nr - 1; ++i)
         for (j = i + 1; j < nr; ++j)
             if (v[i] > v[j])
